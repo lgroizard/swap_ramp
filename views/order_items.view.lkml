@@ -86,6 +86,7 @@ measure: count_of_wardrobed_items {
  }
 
 measure: wardrobing_rate {
+  description: "What % of items have been wardrobed?"
   type: number
   sql: ${count_of_wardrobed_items} / ${count} ;;
   value_format_name: percent_1
