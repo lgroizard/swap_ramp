@@ -134,21 +134,18 @@ measure: wardrobing_rate {
     value_format_name: usd_0
   }
 
-  measure: count_of_first_orders {
-    type: count_distinct
-    sql: ${order_id}  ;;
-    filters: [order_user_sequence.is_first_purchase: "Yes"]
-  }
 
   # ----- Sets of fields for drilling ------
   set: detail {
     fields: [
       id,
-      inventory_items.id,
+      order_id,
+      user_id,
+      inventory_item_id,
+      products.brand,
       inventory_items.product_name,
       users.last_name,
       users.first_name,
-      users.id
     ]
   }
 }

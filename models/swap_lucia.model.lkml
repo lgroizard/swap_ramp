@@ -3,7 +3,7 @@ include: "/views/*.view.lkml"                # include all views in the views/ f
 
 
 datagroup: swap_lucia_default_datagroup {
-  # sql_trigger: SELECT MAX(id) FROM etl_log;;
+  #sql_trigger: SELECT MAX(x) FROM etl;;
   max_cache_age: "1 hour"
 }
 
@@ -18,12 +18,6 @@ explore: order_items {
   view_name: order_items
   label: "Orders and Users and Products"
   description: "use this explore for Wardrobing analysis"
-
-join: order_user_sequence  {
-  type: left_outer
-  relationship: many_to_one
-  sql_on: ${order_items.order_id} = ${order_user_sequence.order_id} ;;
-}
 
  join: users {
    type: left_outer
