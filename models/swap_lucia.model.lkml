@@ -19,6 +19,12 @@ explore: order_items {
   label: "Orders and Users and Products"
   description: "use this explore for Wardrobing analysis"
 
+ join: order_user_sequence {
+   sql_on: ${order_items.order_id} = ${order_user_sequence.order_id} ;;
+  relationship: many_to_one
+  type: left_outer
+ }
+
  join: users {
    type: left_outer
    relationship: many_to_one
